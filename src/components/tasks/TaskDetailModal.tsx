@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import { X, Trash2, Calendar, Clock, Tag, Users, TrendingUp } from 'lucide-react';
+import { X, Trash2, Calendar, Tag, Users, TrendingUp } from 'lucide-react';
 import { useKanban } from '@/context/KanbanContext';
 import { SubtaskSection } from './SubtaskSection';
 import { CommentSection } from './CommentSection';
@@ -14,7 +14,6 @@ import {
   labelEstado,
   labelPlazo,
   labelPrioridad,
-  resolverTrabajador,
 } from '@/lib/kanban-utils';
 import { cn } from '@/lib/utils';
 
@@ -253,17 +252,6 @@ export function TaskDetailModal({ tareaId, onClose }: TaskDetailModalProps) {
                 type="date"
                 value={tarea.fechaFin}
                 onChange={(e) => set('fechaFin', e.target.value)}
-                className="w-full text-sm rounded-lg px-3 py-2 border outline-none focus:ring-1 focus:ring-primary bg-background"
-              />
-            </PropGroup>
-
-            <PropGroup label={<><Clock className="size-3.5" />Estimación (horas)</>}>
-              <input
-                type="number"
-                min={0}
-                value={tarea.estimacionHoras ?? ''}
-                onChange={(e) => set('estimacionHoras', e.target.value ? Number(e.target.value) : undefined)}
-                placeholder="—"
                 className="w-full text-sm rounded-lg px-3 py-2 border outline-none focus:ring-1 focus:ring-primary bg-background"
               />
             </PropGroup>

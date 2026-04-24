@@ -2,6 +2,7 @@ import { Download, Upload, Plus, Users } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useKanban } from '@/context/KanbanContext';
 import { useRef } from 'react';
+import { AnimatedThemeToggler } from '@/components/ui/animated-theme-toggler';
 
 interface HeaderProps {
   onNuevaTarea: () => void;
@@ -21,7 +22,7 @@ export function Header({ onNuevaTarea, onNuevoTrabajador }: HeaderProps) {
   }
 
   return (
-    <header className="border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 sticky top-0 z-40">
+    <header className="border-b bg-background/95 backdrop-blur supports-backdrop-filter:bg-background/60 sticky top-0 z-40">
       <div className="flex items-center justify-between px-6 py-3 gap-4">
         <div className="flex items-center gap-3">
           <div className="size-8 rounded-lg bg-primary flex items-center justify-center">
@@ -38,6 +39,11 @@ export function Header({ onNuevaTarea, onNuevoTrabajador }: HeaderProps) {
         </div>
 
         <div className="flex items-center gap-2">
+          <AnimatedThemeToggler
+            variant="circle"
+            duration={400}
+            className="size-9 rounded-lg border border-input bg-background hover:bg-accent hover:text-accent-foreground flex items-center justify-center transition-colors [&>svg]:size-4"
+          />
           <Button variant="outline" size="sm" onClick={onNuevoTrabajador}>
             <Users className="size-4" />
             <span className="hidden sm:inline">Trabajador</span>

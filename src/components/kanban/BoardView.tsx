@@ -4,7 +4,7 @@ import { Kanban, KanbanBoard, KanbanColumn, KanbanItem, KanbanOverlay } from '@/
 import { TaskCard } from './TaskCard';
 import { FilterBar } from './FilterBar';
 import { useKanban } from '@/context/KanbanContext';
-import { filtrarTareas, labelEstado } from '@/lib/kanban-utils';
+import { calcularProgreso, filtrarTareas, labelEstado } from '@/lib/kanban-utils';
 import type { Task, TaskState } from '@/types';
 import { cn } from '@/lib/utils';
 
@@ -20,7 +20,7 @@ const COLUMNAS: { id: TaskState; label: string; color: string }[] = [
 ];
 
 export function BoardView({ onAbrirTarea, onNuevaTarea }: BoardViewProps) {
-  const { data, filtros, moverTarea, reordenarTareas } = useKanban();
+  const { data, filtros, reordenarTareas } = useKanban();
   const [activeId, setActiveId] = useState<string | null>(null);
 
   const tareasFiltradas = filtrarTareas(data.tareas, filtros);
@@ -35,23 +35,35 @@ export function BoardView({ onAbrirTarea, onNuevaTarea }: BoardViewProps) {
   );
 
   function handleValueChange(nuevoRecord: Record<TaskState, Task[]>) {
-    // Detectar qué tarea cambió de columna y actualizar su estado
+    // Mapa de id → nuevo estado según la posición en el record
+    const nuevoEstadoPorId = new Map<string, TaskState>();
     for (const [estado, tareas] of Object.entries(nuevoRecord) as [TaskState, Task[]][]) {
-      for (const tarea of tareas) {
-        if (tarea.estado !== estado) {
-          moverTarea(tarea.id, estado);
-        }
-      }
+      for (const tarea of tareas) nuevoEstadoPorId.set(tarea.id, estado);
     }
 
-    // Reordenar dentro de la misma columna: reconstruir el array global
-    const todasEnNuevoOrden = Object.values(nuevoRecord).flat();
-    const idsNuevos = todasEnNuevoOrden.map((t) => t.id);
+    // Reconstruir el array global en el nuevo orden, aplicando el estado en una sola pasada
+    const ordenFiltradas = Object.values(nuevoRecord).flat().map((t) => t.id);
     const tareasNoFiltradas = data.tareas.filter((t) => !tareasFiltradas.some((f) => f.id === t.id));
-    const reordenadas = [
-      ...idsNuevos.map((id) => data.tareas.find((t) => t.id === id)!).filter(Boolean),
+
+    const reordenadas: Task[] = [
+      ...ordenFiltradas.map((id) => {
+        const t = data.tareas.find((t) => t.id === id);
+        if (!t) return null;
+        const nuevoEstado = nuevoEstadoPorId.get(id)!;
+        if (t.estado === nuevoEstado) return t;
+        // Aplicar nuevo estado (misma lógica que moverTarea en el contexto)
+        const actualizada: Task = { ...t, estado: nuevoEstado };
+        if (nuevoEstado === 'completado') {
+          actualizada.microtareas = t.microtareas.map((m) => ({ ...m, completada: true }));
+          actualizada.progreso = 100;
+        } else {
+          actualizada.progreso = calcularProgreso(actualizada);
+        }
+        return actualizada;
+      }).filter((t): t is Task => t !== null),
       ...tareasNoFiltradas,
     ];
+
     reordenarTareas(reordenadas);
   }
 
@@ -100,8 +112,8 @@ export function BoardView({ onAbrirTarea, onNuevaTarea }: BoardViewProps) {
                       <KanbanItem
                         key={tarea.id}
                         value={tarea.id}
-                        asChild
-                        className={cn(activeId === tarea.id && 'opacity-50')}
+                        asHandle
+                        className={cn('rounded-xl', activeId === tarea.id && 'opacity-50')}
                       >
                         <TaskCard
                           tarea={tarea}

@@ -2,7 +2,7 @@ import { useState, useRef, useEffect } from 'react';
 import { Check, Plus, Trash2, ChevronDown, ChevronUp } from 'lucide-react';
 import { useKanban } from '@/context/KanbanContext';
 import type { Task } from '@/types';
-import { calcularProgreso } from '@/lib/kanban-utils';
+import { calcularProgreso, formatearFechaRelativa } from '@/lib/kanban-utils';
 import { cn } from '@/lib/utils';
 
 interface SubtaskSectionProps {
@@ -69,56 +69,72 @@ export function SubtaskSection({ tarea }: SubtaskSectionProps) {
       </button>
 
       {expandida && (
-        <div className="space-y-1 pl-2">
-          {tarea.microtareas.map((m) => (
-            <div
-              key={m.id}
-              className="group flex items-center gap-2 py-1.5 px-2 rounded-lg hover:bg-muted/50 transition-colors"
-            >
-              <button
-                onClick={() => toggleSubtarea(tarea.id, m.id)}
-                className={cn(
-                  'size-4 rounded border-2 flex-shrink-0 flex items-center justify-center transition-colors',
-                  m.completada
-                    ? 'bg-emerald-500 border-emerald-500 text-white'
-                    : 'border-muted-foreground/40 hover:border-primary'
-                )}
+        <div className="pl-2 space-y-1">
+          {/* Lista con scroll máximo */}
+          <div className="max-h-48 overflow-y-auto pr-1 space-y-0.5">
+            {tarea.microtareas.map((m) => (
+              <div
+                key={m.id}
+                className="group flex items-start gap-2 py-1.5 px-2 rounded-lg hover:bg-muted/50 transition-colors"
               >
-                {m.completada && <Check className="size-2.5" />}
-              </button>
-
-              {editandoId === m.id ? (
-                <input
-                  ref={editRef}
-                  value={editTexto}
-                  onChange={(e) => setEditTexto(e.target.value)}
-                  onBlur={() => guardarEdicion(m.id)}
-                  onKeyDown={(e) => {
-                    if (e.key === 'Enter') guardarEdicion(m.id);
-                    if (e.key === 'Escape') setEditandoId(null);
-                  }}
-                  className="flex-1 text-sm bg-transparent border-b border-primary outline-none"
-                />
-              ) : (
-                <span
-                  onClick={() => iniciarEdicion(m.id, m.texto)}
+                <button
+                  onClick={() => toggleSubtarea(tarea.id, m.id)}
                   className={cn(
-                    'flex-1 text-sm cursor-text',
-                    m.completada && 'line-through text-muted-foreground'
+                    'size-4 rounded border-2 flex-shrink-0 flex items-center justify-center transition-colors mt-0.5',
+                    m.completada
+                      ? 'bg-emerald-500 border-emerald-500 text-white'
+                      : 'border-muted-foreground/40 hover:border-primary'
                   )}
                 >
-                  {m.texto}
-                </span>
-              )}
+                  {m.completada && <Check className="size-2.5" />}
+                </button>
 
-              <button
-                onClick={() => eliminarSubtarea(tarea.id, m.id)}
-                className="opacity-0 group-hover:opacity-100 text-muted-foreground hover:text-red-500 transition-all size-5 flex items-center justify-center"
-              >
-                <Trash2 className="size-3.5" />
-              </button>
-            </div>
-          ))}
+                <div className="flex-1 min-w-0">
+                  {editandoId === m.id ? (
+                    <input
+                      ref={editRef}
+                      value={editTexto}
+                      onChange={(e) => setEditTexto(e.target.value)}
+                      onBlur={() => guardarEdicion(m.id)}
+                      onKeyDown={(e) => {
+                        if (e.key === 'Enter') guardarEdicion(m.id);
+                        if (e.key === 'Escape') setEditandoId(null);
+                      }}
+                      className="w-full text-sm bg-transparent border-b border-primary outline-none"
+                    />
+                  ) : (
+                    <span
+                      onClick={() => iniciarEdicion(m.id, m.texto)}
+                      className={cn(
+                        'block text-sm cursor-text leading-snug',
+                        m.completada && 'line-through text-muted-foreground'
+                      )}
+                    >
+                      {m.texto}
+                    </span>
+                  )}
+                  {/* Fechas de seguimiento */}
+                  <div className="flex gap-3 mt-0.5">
+                    <span className="text-[10px] text-muted-foreground/60">
+                      Creada {formatearFechaRelativa(m.fechaCreacion)}
+                    </span>
+                    {m.fechaModificacion !== m.fechaCreacion && (
+                      <span className="text-[10px] text-muted-foreground/60">
+                        · Modificada {formatearFechaRelativa(m.fechaModificacion)}
+                      </span>
+                    )}
+                  </div>
+                </div>
+
+                <button
+                  onClick={() => eliminarSubtarea(tarea.id, m.id)}
+                  className="opacity-0 group-hover:opacity-100 text-muted-foreground hover:text-red-500 transition-all size-5 flex items-center justify-center mt-0.5"
+                >
+                  <Trash2 className="size-3.5" />
+                </button>
+              </div>
+            ))}
+          </div>
 
           <form onSubmit={agregarNueva} className="flex items-center gap-2 mt-2 pl-2">
             <Plus className="size-4 text-muted-foreground flex-shrink-0" />

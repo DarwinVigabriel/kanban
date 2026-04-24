@@ -4,6 +4,8 @@ export interface Subtask {
   completada: boolean;
   asignadoId?: string;
   fechaFin?: string;
+  fechaCreacion: string;
+  fechaModificacion: string;
 }
 
 export interface Comment {
@@ -29,7 +31,6 @@ export interface Task {
   fechaInicio: string;
   fechaFin: string;
   progreso: number;
-  estimacionHoras?: number;
   etiquetas: string[];
   fechaCreacion: string;
   microtareas: Subtask[];

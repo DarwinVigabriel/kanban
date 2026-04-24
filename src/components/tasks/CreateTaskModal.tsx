@@ -23,7 +23,6 @@ export function CreateTaskModal({ onClose, estadoInicial = 'pendiente' }: Create
   const [fechaInicio, setFechaInicio] = useState(hoy);
   const [fechaFin, setFechaFin] = useState('');
   const [asignados, setAsignados] = useState<string[]>([]);
-  const [estimacion, setEstimacion] = useState('');
 
   useEffect(() => {
     function handleKey(e: KeyboardEvent) {
@@ -54,7 +53,6 @@ export function CreateTaskModal({ onClose, estadoInicial = 'pendiente' }: Create
       asignados,
       etiquetas: [],
       microtareas: [],
-      estimacionHoras: estimacion ? Number(estimacion) : undefined,
     });
     onClose();
   }
@@ -132,17 +130,6 @@ export function CreateTaskModal({ onClose, estadoInicial = 'pendiente' }: Create
                 <option value="semanal">Semanal</option>
                 <option value="mensual">Mensual</option>
               </select>
-            </div>
-            <div>
-              <label className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-1.5 block">Est. (horas)</label>
-              <input
-                type="number"
-                min={0}
-                value={estimacion}
-                onChange={(e) => setEstimacion(e.target.value)}
-                placeholder="—"
-                className="w-full text-sm rounded-lg px-3 py-2 border bg-background outline-none focus:ring-1 focus:ring-primary"
-              />
             </div>
             <div>
               <label className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-1.5 block">Inicio</label>

@@ -128,3 +128,12 @@
     @apply font-sans;
     }
 }
+
+::view-transition-old(root), ::view-transition-new(root) {
+    animation: none;
+    mix-blend-mode: normal;
+}
+
+::view-transition-group(root) {
+    animation-duration: var(--magicui-theme-toggle-vt-duration, 0.25s);
+}

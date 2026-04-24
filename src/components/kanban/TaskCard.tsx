@@ -1,4 +1,4 @@
-import { AlertTriangle, Calendar, CheckSquare, Clock, MessageSquare } from 'lucide-react';
+import { AlertTriangle, Calendar, CheckSquare, MessageSquare } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import type { Task } from '@/types';
 import { useKanban } from '@/context/KanbanContext';
@@ -32,9 +32,9 @@ export function TaskCard({ tarea, onClick, className }: TaskCardProps) {
     <div
       onClick={onClick}
       className={cn(
-        'group relative bg-card rounded-xl border border-l-4 p-4 cursor-pointer',
+        'group relative bg-card rounded-xl border border-l-4 p-4',
         'shadow-sm hover:shadow-md transition-all duration-150',
-        'hover:border-primary/30 active:scale-[0.98]',
+        'hover:border-primary/30',
         colorBordePrioridad(tarea.prioridad),
         vencida && 'bg-red-50/50 dark:bg-red-950/20',
         className
@@ -116,13 +116,6 @@ export function TaskCard({ tarea, onClick, className }: TaskCardProps) {
             <Calendar className="size-3 shrink-0" />
             {formatearFecha(tarea.fechaFin)}
           </span>
-
-          {tarea.estimacionHoras && (
-            <span className="flex items-center gap-1 text-xs text-muted-foreground">
-              <Clock className="size-3" />
-              {tarea.estimacionHoras}h
-            </span>
-          )}
 
           {tarea.comentarios.length > 0 && (
             <span className="flex items-center gap-1 text-xs text-muted-foreground">

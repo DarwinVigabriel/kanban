@@ -27,13 +27,14 @@ function migrateData(raw: unknown): KanbanData {
     ...t,
     etiquetas: t.etiquetas ?? [],
     comentarios: t.comentarios ?? [],
-    estimacionHoras: t.estimacionHoras,
     microtareas: (t.microtareas ?? []).map((m: Partial<Subtask>) => ({
       id: m.id ?? generarId(),
       texto: m.texto ?? '',
       completada: m.completada ?? false,
       asignadoId: m.asignadoId,
       fechaFin: m.fechaFin,
+      fechaCreacion: m.fechaCreacion ?? new Date().toISOString(),
+      fechaModificacion: m.fechaModificacion ?? new Date().toISOString(),
     })),
   })) as Task[];
 
@@ -186,7 +187,8 @@ export function KanbanProvider({ children }: { children: ReactNode }) {
 
   const agregarSubtarea = useCallback(
     (tareaId: string, texto: string) => {
-      const nueva: Subtask = { id: generarId(), texto, completada: false };
+      const ahora = new Date().toISOString();
+      const nueva: Subtask = { id: generarId(), texto, completada: false, fechaCreacion: ahora, fechaModificacion: ahora };
       actualizarTarea(tareaId, {
         microtareas: [
           ...(data.tareas.find((t) => t.id === tareaId)?.microtareas ?? []),
@@ -203,7 +205,7 @@ export function KanbanProvider({ children }: { children: ReactNode }) {
       if (!tarea) return;
       actualizarTarea(tareaId, {
         microtareas: tarea.microtareas.map((m) =>
-          m.id === subtareaId ? { ...m, completada: !m.completada } : m
+          m.id === subtareaId ? { ...m, completada: !m.completada, fechaModificacion: new Date().toISOString() } : m
         ),
       });
     },
@@ -216,7 +218,7 @@ export function KanbanProvider({ children }: { children: ReactNode }) {
       if (!tarea) return;
       actualizarTarea(tareaId, {
         microtareas: tarea.microtareas.map((m) =>
-          m.id === subtareaId ? { ...m, ...datos } : m
+          m.id === subtareaId ? { ...m, ...datos, fechaModificacion: new Date().toISOString() } : m
         ),
       });
     },
