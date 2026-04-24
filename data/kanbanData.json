@@ -3,298 +3,172 @@
     {
       "id": "mo7g2xw94yzzic61u63",
       "titulo": "Refactorizacion del sistema ADMIN",
-      "descripcion": "se pasara admin a una estructura basada en docker, mejorando la vista y dejando interconexion ",
-      "asignados": [
-        "mo7fxfm3yizenpoz17"
-      ],
+      "descripcion": "Se pasará admin a una estructura basada en docker, mejorando la vista y dejando interconexión.",
+      "asignados": ["mo7fxfm3yizenpoz17"],
       "plazo": "semanal",
       "fechaInicio": "2026-04-20",
       "fechaFin": "2026-05-01",
       "prioridad": "alta",
       "estado": "en-progreso",
       "progreso": 0,
+      "estimacionHoras": 40,
+      "etiquetas": ["backend", "docker", "admin"],
+      "fechaCreacion": "2026-04-20T17:04:20.506Z",
       "microtareas": [
-        {
-          "id": "mo7g38i844bd26i8stz",
-          "texto": "Crear vista en tiempo real de la edicion del plan",
-          "completada": false
-        },
-        {
-          "id": "mo7g3pftw2jeb35u5us",
-          "texto": "limitacion de planes por edad, sexo, etc",
-          "completada": false
-        },
-        {
-          "id": "mo7g4xu0e1003u34tup",
-          "texto": "unificar vista de ramas y subramas ",
-          "completada": false
-        },
-        {
-          "id": "mo7g5a4js59q63afibp",
-          "texto": "buscador dinamico para las caracteristicas del plan ",
-          "completada": false
-        },
-        {
-          "id": "mo7g5w8jg7epkmr649p",
-          "texto": "unificar tabla de asistencias ",
-          "completada": false
-        },
-        {
-          "id": "mo7g662dgh3s7ou3z1w",
-          "texto": "la edicion del se guarda en borrador si te salis ",
-          "completada": false
-        },
-        {
-          "id": "mo7g7dxm1n0b9fxxr5m",
-          "texto": "quitar la vista de familiares ",
-          "completada": false
-        },
-        {
-          "id": "mo7g9d0jej20nxvh34",
-          "texto": "habilitar verificacion de foto ci con api de chatgpt ",
-          "completada": false
-        },
-        {
-          "id": "mo7gb3r03s1rqxrrxub",
-          "texto": "agregar logica de periodo de carencias",
-          "completada": false
-        },
-        {
-          "id": "mo7gbeh6pw34dxdrh2",
-          "texto": "volar vista caracteristicas del plan ",
-          "completada": false
-        },
-        {
-          "id": "mo7gc5pfwcdbf80y53",
-          "texto": "vista para ver pagos ",
-          "completada": false
-        },
-        {
-          "id": "mo8tps6x47gim9w1dtk",
-          "texto": "poner addons dentro del admin ",
-          "completada": false
-        },
-        {
-          "id": "moa3xjdmx3fbyo76pxm",
-          "texto": "crear la fucionalidad para registrar beneficiarios por exel ",
-          "completada": false
-        }
+        { "id": "mo7g38i844bd26i8stz", "texto": "Crear vista en tiempo real de la edicion del plan", "completada": false },
+        { "id": "mo7g3pftw2jeb35u5us", "texto": "Limitacion de planes por edad, sexo, etc", "completada": false },
+        { "id": "mo7g4xu0e1003u34tup", "texto": "Unificar vista de ramas y subramas", "completada": false },
+        { "id": "mo7g5a4js59q63afibp", "texto": "Buscador dinamico para las caracteristicas del plan", "completada": false },
+        { "id": "mo7g5w8jg7epkmr649p", "texto": "Unificar tabla de asistencias", "completada": false },
+        { "id": "mo7g662dgh3s7ou3z1w", "texto": "La edicion se guarda en borrador si te salis", "completada": false },
+        { "id": "mo7g7dxm1n0b9fxxr5m", "texto": "Quitar la vista de familiares", "completada": false },
+        { "id": "mo7g9d0jej20nxvh34", "texto": "Habilitar verificacion de foto CI con API de ChatGPT", "completada": false },
+        { "id": "mo7gb3r03s1rqxrrxub", "texto": "Agregar logica de periodo de carencias", "completada": false },
+        { "id": "mo7gbeh6pw34dxdrh2", "texto": "Volar vista caracteristicas del plan", "completada": false },
+        { "id": "mo7gc5pfwcdbf80y53", "texto": "Vista para ver pagos", "completada": false },
+        { "id": "mo8tps6x47gim9w1dtk", "texto": "Poner addons dentro del admin", "completada": false },
+        { "id": "moa3xjdmx3fbyo76pxm", "texto": "Crear funcionalidad para registrar beneficiarios por Excel", "completada": false }
       ],
-      "fechaCreacion": "2026-04-20T17:04:20.506Z"
+      "comentarios": [
+        {
+          "id": "cmt001",
+          "autorId": "mo7fxfm3yizenpoz17",
+          "texto": "Iniciando la refactorizacion, primera fase es la dockerizacion del servicio.",
+          "fecha": "2026-04-20T18:00:00.000Z",
+          "editado": false
+        }
+      ]
     },
     {
       "id": "mo7ge0mbe5tpdc842rl",
       "titulo": "Aumentar features a testing eracuan",
-      "descripcion": "se colocara en testing eracuan nuevas funcionalidades para conectar bien con el back de admin ",
-      "asignados": [
-        "mo7fxfm3yizenpoz17"
-      ],
+      "descripcion": "Se colocara en testing eracuan nuevas funcionalidades para conectar bien con el back de admin.",
+      "asignados": ["mo7fxfm3yizenpoz17"],
       "plazo": "diario",
       "fechaInicio": "2026-04-20",
       "fechaFin": "2026-04-21",
       "prioridad": "alta",
       "estado": "completado",
       "progreso": 100,
+      "estimacionHoras": 8,
+      "etiquetas": ["frontend", "testing"],
+      "fechaCreacion": "2026-04-20T17:12:57.251Z",
       "microtareas": [
-        {
-          "id": "mo7ge6b9gmh277skd28",
-          "texto": "poner asignacion de tomador en la vista de perfil ",
-          "completada": true
-        },
-        {
-          "id": "mo7gf2erjgw7epxuntg",
-          "texto": "crear check tipo terminos y condiciones para el tomador ",
-          "completada": true
-        },
-        {
-          "id": "mo90voyt9qnxj0g2377",
-          "texto": "crear modal para hostigar al cliente hasta que se lo instale",
-          "completada": true
-        }
+        { "id": "mo7ge6b9gmh277skd28", "texto": "Poner asignacion de tomador en la vista de perfil", "completada": true },
+        { "id": "mo7gf2erjgw7epxuntg", "texto": "Crear check tipo terminos y condiciones para el tomador", "completada": true },
+        { "id": "mo90voyt9qnxj0g2377", "texto": "Crear modal para hostigar al cliente hasta que se lo instale", "completada": true }
       ],
-      "fechaCreacion": "2026-04-20T17:12:57.251Z"
+      "comentarios": []
     },
     {
       "id": "mo7gk5kgm6hruakeer",
-      "titulo": "Hacer front de la vista medica ",
-      "descripcion": "realizar la mejora de la vista del sistema para los medicos DEBE SER NETAMENTE FRONT USANDO SERVER BASICO SOLO PARA SERVIR LOS ARCHIVOS ESTATICOS",
-      "asignados": [
-        "mo7fy971s5x915uu6"
-      ],
+      "titulo": "Hacer front de la vista medica",
+      "descripcion": "Realizar la mejora de la vista del sistema para los medicos. Debe ser netamente front usando server basico solo para servir los archivos estaticos.",
+      "asignados": ["mo7fy971s5x915uu6"],
       "plazo": "semanal",
       "fechaInicio": "2026-04-20",
       "fechaFin": "2026-05-01",
       "prioridad": "alta",
       "estado": "en-progreso",
       "progreso": 100,
+      "estimacionHoras": 60,
+      "etiquetas": ["frontend", "medico", "UI"],
+      "fechaCreacion": "2026-04-20T17:17:43.600Z",
       "microtareas": [
-        {
-          "id": "mo7izbct3agwyj0uxna",
-          "texto": "todo lo que sea analitica se pasara la vista de reportes (Analisis (Citas), Dashboard)",
-          "completada": true
-        },
-        {
-          "id": "mo7j0pkyj31h22ba77f",
-          "texto": "Calendario se trasladara por el dashboard",
-          "completada": true
-        },
-        {
-          "id": "mo7j18n8hjiiycnhkhp",
-          "texto": "Quitar el saldo del cliente de la vista de seguimiento",
-          "completada": true
-        },
-        {
-          "id": "mo7j1jqo15ljmcvzpoyj",
-          "texto": "Crecer mas los badgets del calendario",
-          "completada": true
-        },
-        {
-          "id": "mo7j2322azra6ps2nw4",
-          "texto": "Anadir sombra para UI porque se necesita tener informacion de donde la persona esta en ese momento (o algo que indique donde se encuentra la vista o la persona)",
-          "completada": true
-        },
-        {
-          "id": "mo7lmv5nli4kebvpym",
-          "texto": "aumentar en el perfil de doctor, sus especialidades como cualquier seccion de especialidades",
-          "completada": true
-        },
-        {
-          "id": "mo7ln5djt0a5z7uym98",
-          "texto": "Quitar las vistas de, laboratorios, farmacias, videoconsultas",
-          "completada": true
-        },
-        {
-          "id": "mo7mxu8wevqyt2qq84b",
-          "texto": "Traslado de Buscar paciente a Historial",
-          "completada": true
-        },
-        {
-          "id": "mo7my4877w8vxj4ph2",
-          "texto": "generalizar los slots a Citas",
-          "completada": true
-        },
-        {
-          "id": "mo7mykkya1rzacya827",
-          "texto": "Creacion de Horario Formato estilo UAGRM con fechas de semanal a Mensual",
-          "completada": true
-        },
-        {
-          "id": "mo7mz3qtexlqetypihb",
-          "texto": "Quitar la (nueva cita) en donde el calendario, donde esta la lista de citas del dia",
-          "completada": true
-        },
-        {
-          "id": "mo7n0wa7776vgm80le4",
-          "texto": "Nueva Forma de columnas Seguimiento: Paciente, Producto (El seguro de donde viene), Doctor - especialidad, cita, Recetas/laboratorios(informes), estados",
-          "completada": true
-        },
-        {
-          "id": "mo7n1darv2tewvcz55",
-          "texto": "Mover el medicamento de la vista seguimiento a recetas por cliente",
-          "completada": true
-        },
-        {
-          "id": "mo7n1pcanc3qdm05kf",
-          "texto": "Anadir Motivo de la consulta en el modal del paciente del historial",
-          "completada": true
-        },
-        {
-          "id": "mo7n277z9nin3oldbyc",
-          "texto": "Re-agendar cita en la persona",
-          "completada": true
-        },
-        {
-          "id": "mo930w0j4ysrpi4skr3",
-          "texto": "Poblar con mas pacientes, citas, horarios libres, etc (mayor credibilidad)",
-          "completada": true
-        },
-        {
-          "id": "mobm2qkt9kdl89766jo",
-          "texto": "Traslado de la tabla de Horario al dashboard como opcion de vista entre semanal o mensual y traslado de estadisticas del dashboard a reportes",
-          "completada": true
-        },
-        {
-          "id": "mobuq6oya8dapw397i",
-          "texto": "De la vista (Recetas) al seleccionar un perfil, se debe quitar la seccion (Diagnostico)",
-          "completada": true
-        }
+        { "id": "mo7izbct3agwyj0uxna", "texto": "Todo lo que sea analitica se pasara a la vista de reportes", "completada": true },
+        { "id": "mo7j0pkyj31h22ba77f", "texto": "Calendario se trasladara por el dashboard", "completada": true },
+        { "id": "mo7j18n8hjiiycnhkhp", "texto": "Quitar el saldo del cliente de la vista de seguimiento", "completada": true },
+        { "id": "mo7j1jqo15ljmcvzpoyj", "texto": "Crecer mas los badgets del calendario", "completada": true },
+        { "id": "mo7j2322azra6ps2nw4", "texto": "Anadir sombra para UI de navegacion", "completada": true },
+        { "id": "mo7lmv5nli4kebvpym", "texto": "Aumentar en el perfil de doctor sus especialidades", "completada": true },
+        { "id": "mo7ln5djt0a5z7uym98", "texto": "Quitar las vistas de laboratorios, farmacias, videoconsultas", "completada": true },
+        { "id": "mo7mxu8wevqyt2qq84b", "texto": "Traslado de Buscar paciente a Historial", "completada": true },
+        { "id": "mo7my4877w8vxj4ph2", "texto": "Generalizar los slots a Citas", "completada": true },
+        { "id": "mo7mykkya1rzacya827", "texto": "Creacion de Horario Formato estilo UAGRM semanal a Mensual", "completada": true },
+        { "id": "mo7mz3qtexlqetypihb", "texto": "Quitar la nueva cita en donde el calendario", "completada": true },
+        { "id": "mo7n0wa7776vgm80le4", "texto": "Nueva forma de columnas Seguimiento", "completada": true },
+        { "id": "mo7n1darv2tewvcz55", "texto": "Mover el medicamento de seguimiento a recetas por cliente", "completada": true },
+        { "id": "mo7n1pcanc3qdm05kf", "texto": "Anadir Motivo de la consulta en el modal del paciente del historial", "completada": true },
+        { "id": "mo7n277z9nin3oldbyc", "texto": "Re-agendar cita en la persona", "completada": true },
+        { "id": "mo930w0j4ysrpi4skr3", "texto": "Poblar con mas pacientes, citas, horarios libres", "completada": true },
+        { "id": "mobm2qkt9kdl89766jo", "texto": "Traslado de la tabla de Horario al dashboard", "completada": true },
+        { "id": "mobuq6oya8dapw397i", "texto": "De la vista Recetas quitar la seccion Diagnostico", "completada": true }
       ],
-      "fechaCreacion": "2026-04-20T17:17:43.600Z"
+      "comentarios": [
+        {
+          "id": "cmt002",
+          "autorId": "mo7fy971s5x915uu6",
+          "texto": "Todas las microtareas completadas. Pendiente revision final con el equipo medico.",
+          "fecha": "2026-04-23T10:00:00.000Z",
+          "editado": false
+        }
+      ]
     },
     {
       "id": "mo7glj5lkk4k5xfiw",
-      "titulo": "MVP IA medica ",
-      "descripcion": "realizar el mvp super basico con la vista que ya hay, para hacer que funcione la ia ",
-      "asignados": [
-        "mo7fy971s5x915uu6"
-      ],
+      "titulo": "MVP IA medica",
+      "descripcion": "Realizar el MVP super basico con la vista que ya hay, para hacer que funcione la IA.",
+      "asignados": ["mo7fy971s5x915uu6"],
       "plazo": "diario",
       "fechaInicio": "2026-04-20",
       "fechaFin": "2026-05-01",
       "prioridad": "media",
       "estado": "en-progreso",
       "progreso": 0,
+      "estimacionHoras": 20,
+      "etiquetas": ["IA", "MVP", "medico"],
+      "fechaCreacion": "2026-04-20T17:18:47.865Z",
       "microtareas": [],
-      "fechaCreacion": "2026-04-20T17:18:47.865Z"
+      "comentarios": []
     },
     {
       "id": "mo7lkx279ylvvnubq5o",
       "titulo": "Realizar el backend del negocio de dr",
-      "descripcion": "realizar los endpoints necesarios para conectar correctamente el nuevo front de drs, siguiendo las lineaciones de seguridad actuales, y creando test unitarios para cada flujo preciso intentando lo mas posible llegar al 100% de cobertura",
-      "asignados": [
-        "mo7fztpspr7vm44u01"
-      ],
+      "descripcion": "Realizar los endpoints necesarios para conectar correctamente el nuevo front de drs, siguiendo las lineaciones de seguridad actuales, y creando test unitarios para cada flujo preciso intentando lo mas posible llegar al 100% de cobertura.",
+      "asignados": ["mo7fztpspr7vm44u01"],
       "plazo": "semanal",
       "fechaInicio": "2026-04-20",
       "fechaFin": "2026-05-01",
       "prioridad": "alta",
       "estado": "en-progreso",
       "progreso": 75,
+      "estimacionHoras": 30,
+      "etiquetas": ["backend", "API", "tests"],
+      "fechaCreacion": "2026-04-20T19:38:17.311Z",
       "microtareas": [
-        {
-          "id": "moag4uvm5wsibdaqzi5",
-          "texto": "lista de citas",
-          "completada": true
-        },
-        {
-          "id": "moag519hkowerlh6t3",
-          "texto": "signos vitales",
-          "completada": true
-        },
-        {
-          "id": "mobwoff7alc0oscyvh",
-          "texto": "editar signos vitales",
-          "completada": true
-        },
-        {
-          "id": "mobytjnoyr32wpaqvoi",
-          "texto": "Iniciar Cita",
-          "completada": false
-        }
+        { "id": "moag4uvm5wsibdaqzi5", "texto": "Lista de citas", "completada": true },
+        { "id": "moag519hkowerlh6t3", "texto": "Signos vitales", "completada": true },
+        { "id": "mobwoff7alc0oscyvh", "texto": "Editar signos vitales", "completada": true },
+        { "id": "mobytjnoyr32wpaqvoi", "texto": "Iniciar Cita", "completada": false }
       ],
-      "fechaCreacion": "2026-04-20T19:38:17.311Z"
+      "comentarios": [
+        {
+          "id": "cmt003",
+          "autorId": "mo7fztpspr7vm44u01",
+          "texto": "75% completado. Falta el endpoint de Iniciar Cita con sus validaciones.",
+          "fecha": "2026-04-22T14:30:00.000Z",
+          "editado": false
+        }
+      ]
     },
     {
       "id": "mo90yl7afkerv6k3rrm",
-      "titulo": "tablas de base de datos",
-      "descripcion": "hay que agregar las tablas correspondientes a la base de datos para manejar la nueva logica integrada en las nuevas features del front",
-      "asignados": [
-        "mo7fxfm3yizenpoz17"
-      ],
+      "titulo": "Tablas de base de datos",
+      "descripcion": "Hay que agregar las tablas correspondientes a la base de datos para manejar la nueva logica integrada en las nuevas features del front.",
+      "asignados": ["mo7fxfm3yizenpoz17"],
       "plazo": "semanal",
       "fechaInicio": "2026-04-21",
       "fechaFin": "2026-04-22",
       "prioridad": "media",
       "estado": "completado",
       "progreso": 100,
+      "estimacionHoras": 4,
+      "etiquetas": ["base-de-datos", "backend"],
+      "fechaCreacion": "2026-04-21T19:36:35.542Z",
       "microtareas": [
-        {
-          "id": "mo90yut5uakiutr6wm",
-          "texto": "agregar tabla para guardar beneficiarios",
-          "completada": true
-        }
+        { "id": "mo90yut5uakiutr6wm", "texto": "Agregar tabla para guardar beneficiarios", "completada": true }
       ],
-      "fechaCreacion": "2026-04-21T19:36:35.542Z"
+      "comentarios": []
     }
   ],
   "trabajadores": [
@@ -302,20 +176,24 @@
       "id": "mo7fxfm3yizenpoz17",
       "nombre": "warostaky",
       "email": "whurtado@medicuan.com",
-      "cargo": "Devsecops - Fullstack "
+      "cargo": "Devsecops - Fullstack",
+      "color": "#6366f1"
     },
     {
       "id": "mo7fy971s5x915uu6",
       "nombre": "Darwin",
       "email": "darwinvigabriel@medicuan.com",
-      "cargo": "frontend dev"
+      "cargo": "Frontend Dev",
+      "color": "#0ea5e9"
     },
     {
       "id": "mo7fztpspr7vm44u01",
-      "nombre": "fernando ",
+      "nombre": "Fernando",
       "email": "fernando@medicuan.com",
-      "cargo": "fullstack dev"
+      "cargo": "Fullstack Dev",
+      "color": "#10b981"
     }
   ],
-  "tareaActual": "mo7lkx279ylvvnubq5o"
+  "tareaActual": "mo7lkx279ylvvnubq5o",
+  "etiquetasGlobales": ["backend", "frontend", "docker", "admin", "testing", "medico", "UI", "IA", "MVP", "API", "tests", "base-de-datos"]
 }
