@@ -88,7 +88,7 @@ function WorkerCard({
       <div className="p-5">
         <div className="flex items-start gap-3">
           <div
-            className="size-12 rounded-full text-lg font-bold text-white flex items-center justify-center flex-shrink-0"
+            className="size-12 rounded-full text-lg font-bold text-white flex items-center justify-center shrink-0"
             style={{ backgroundColor: worker.color }}
           >
             {inicialDeTrabajador(worker)}

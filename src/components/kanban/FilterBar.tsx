@@ -21,7 +21,7 @@ export function FilterBar() {
 
   return (
     <div className="flex flex-wrap items-center gap-2 px-6 py-3 border-b bg-background/80">
-      <div className="relative flex-1 min-w-[180px] max-w-xs">
+      <div className="relative flex-1 min-w-[45] max-w-xs">
         <Search className="absolute left-2.5 top-1/2 -translate-y-1/2 size-3.5 text-muted-foreground" />
         <input
           type="text"
