@@ -88,7 +88,7 @@ export function BoardView({ onAbrirTarea, onNuevaTarea }: BoardViewProps) {
                 <KanbanColumn
                   key={col.id}
                   value={col.id}
-                  className="flex flex-col bg-muted/40 rounded-2xl p-3 gap-2 min-h-[200px]"
+                  className="flex flex-col bg-muted/40 rounded-2xl p-3 gap-2 min-h-50"
                 >
                   <div className="flex items-center justify-between px-1 mb-1">
                     <div className="flex items-center gap-2">

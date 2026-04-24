@@ -71,7 +71,7 @@ export function CommentSection({ tarea, autorId }: CommentSectionProps) {
           return (
             <div key={c.id} className="flex gap-3 group">
               <div
-                className="size-7 rounded-full text-xs font-bold text-white flex items-center justify-center flex-shrink-0 mt-0.5"
+                className="size-7 rounded-full text-xs font-bold text-white flex items-center justify-center shrink-0 mt-0.5"
                 style={{ backgroundColor: autor?.color ?? '#6366f1' }}
               >
                 {autor ? inicialDeTrabajador(autor) : '?'}
@@ -161,7 +161,7 @@ export function CommentSection({ tarea, autorId }: CommentSectionProps) {
             </button>
 
             {mostrarSelectorAutor && (
-              <div className="absolute top-full left-0 mt-1 z-10 bg-popover border rounded-xl shadow-lg py-1 min-w-[140px]">
+              <div className="absolute top-full left-0 mt-1 z-10 bg-popover border rounded-xl shadow-lg py-1 min-w-35">
                 {data.trabajadores.map((w) => (
                   <button
                     key={w.id}
@@ -173,7 +173,7 @@ export function CommentSection({ tarea, autorId }: CommentSectionProps) {
                     )}
                   >
                     <div
-                      className="size-5 rounded-full text-[10px] font-bold text-white flex items-center justify-center flex-shrink-0"
+                      className="size-5 rounded-full text-[10px] font-bold text-white flex items-center justify-center shrink-0"
                       style={{ backgroundColor: w.color }}
                     >
                       {inicialDeTrabajador(w)}
@@ -190,7 +190,7 @@ export function CommentSection({ tarea, autorId }: CommentSectionProps) {
         <div className="flex gap-3 items-end">
           {autorActual && (
             <div
-              className="size-7 rounded-full text-xs font-bold text-white flex items-center justify-center flex-shrink-0"
+              className="size-7 rounded-full text-xs font-bold text-white flex items-center justify-center shrink-0"
               style={{ backgroundColor: autorActual.color }}
             >
               {inicialDeTrabajador(autorActual)}

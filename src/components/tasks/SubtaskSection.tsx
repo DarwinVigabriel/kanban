@@ -80,7 +80,7 @@ export function SubtaskSection({ tarea }: SubtaskSectionProps) {
                 <button
                   onClick={() => toggleSubtarea(tarea.id, m.id)}
                   className={cn(
-                    'size-4 rounded border-2 flex-shrink-0 flex items-center justify-center transition-colors mt-0.5',
+                    'size-4 rounded border-2 shrink-0 flex items-center justify-center transition-colors mt-0.5',
                     m.completada
                       ? 'bg-emerald-500 border-emerald-500 text-white'
                       : 'border-muted-foreground/40 hover:border-primary'
@@ -137,7 +137,7 @@ export function SubtaskSection({ tarea }: SubtaskSectionProps) {
           </div>
 
           <form onSubmit={agregarNueva} className="flex items-center gap-2 mt-2 pl-2">
-            <Plus className="size-4 text-muted-foreground flex-shrink-0" />
+            <Plus className="size-4 text-muted-foreground shrink-0" />
             <input
               ref={inputRef}
               type="text"
