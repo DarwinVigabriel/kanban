@@ -33,7 +33,7 @@ export function Header({ onNuevaTarea, onNuevoTrabajador }: HeaderProps) {
             </svg>
           </div>
           <div>
-            <h1 className="text-base font-semibold leading-none">InnovaBrokers</h1>
+            <h1 className="text-base font-semibold leading-none">Medicuan</h1>
             <p className="text-xs text-muted-foreground mt-0.5">Panel de gestión de tareas</p>
           </div>
         </div>
@@ -41,7 +41,7 @@ export function Header({ onNuevaTarea, onNuevoTrabajador }: HeaderProps) {
         <div className="flex items-center gap-2">
           <AnimatedThemeToggler
             variant="circle"
-            duration={400}
+            duration={1000}
             className="size-9 rounded-lg border border-input bg-background hover:bg-accent hover:text-accent-foreground flex items-center justify-center transition-colors [&>svg]:size-4"
           />
           <Button variant="outline" size="sm" onClick={onNuevoTrabajador}>
